@@ -1,0 +1,172 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html,body{
+    height: 100%;
+}
+
+body{
+    background-color: #ff1111;
+}
+
+h1{
+    margin: 0 25px;
+    padding: 5px;
+    color: yellow;
+    font-size: 75px;
+    font-family: 'Geneva', Verdana, sans-serif;
+    text-align: center;
+    border: 5px solid lawngreen;
+    outline: 5px solid green;
+    outline-offset: -15px;
+    background: darkblue;
+}
+
+h2{
+    position: relative;
+    text-align: center;
+    color: white;
+    font-family: monospace;
+    font-size: 7em;
+    cursor: pointer;
+    border: white solid 15px;
+    margin: 100px;
+}
+
+h2:hover{
+    transform: scale(1.1);
+    color: yellow;
+    background-color: black;
+    border-color: rgb(22, 175, 22);
+}
+
+.start > h2{
+    display: none;
+}
+
+audio{
+    display: none;
+}
+
+.viewbox{
+    background-image: url('QTqrcK.png');
+    background-size: cover;
+    margin: 15px auto;
+    width: 1000px;
+    height: 540px;
+    border: solid 10px #444;
+    border-radius: 2px;
+    position: relative;
+    animation: backgd 11.5s linear infinite;
+}
+
+.stop>.viewbox{
+    display: none;
+}
+
+.button{
+    background-image: url('icons8-pause-30.png');
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin: 5px auto;
+    position: relative;
+}
+
+.paused > .button{
+    background-image: url('icons8-play-30.png');
+}
+
+.score{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    font-size: 1.5em;
+    font-family: system-ui;
+    font-weight: bold;
+    color: black;
+}
+
+.player{
+    height: 157px;
+    width: calc(1000px/8);
+    position: absolute;
+    top: 290px;
+    left: 45px;
+    background-image: url('plyr.png');
+    animation: run 1s steps(8) infinite;
+}
+
+.animate{
+    animation: run 1s steps(8) infinite,jump 0.5s infinite;
+}
+
+.spike{
+    height:70px;
+    width:100px;
+    background-image: url('spike_A.png');
+    background-size: cover;
+    position: absolute;
+    top: 385px;
+    animation: obs 1.9s linear infinite;
+}
+
+.paused > .player,
+.paused > .spike,
+.paused.viewbox{
+    animation-play-state: paused;
+}
+
+@keyframes run{
+    from{
+        background-position: 0 0;
+    }
+    to{
+        background-position: -1000px 0;
+    }
+}
+
+@keyframes jump {
+    0%{
+        top:290px;
+    }
+    30%{
+        top:200px;
+    }
+    70%{
+        top: 200px;
+    }
+    100%{
+        top: 290px;
+    }
+}
+
+@keyframes obs{
+    from{
+        left: 920px;
+    }
+    to{
+        left: -30px;
+    }
+}
+
+@keyframes backgd {
+    from{
+        background-position: 0;
+    }
+    to{
+        background-position: -5747px;
+    }
+}
+
+@keyframes blink {
+    from{
+        visibility: hidden;
+    }
+    to{
+        visibility: visible;
+        color: white;
+    }
+}
